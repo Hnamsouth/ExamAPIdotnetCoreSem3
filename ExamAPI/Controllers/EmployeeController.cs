@@ -43,6 +43,20 @@ namespace ExamAPI.Controllers
             return Ok(e);
         }
 
+        [HttpGet, Route("search-by-name")]
+        async public Task<IActionResult> SearchByName(string? name)
+        {
+            var p = await _context.Employees.Where(e => e.Name.Equals(name)).ToListAsync();
+            return Ok(p);
+        }
+
+        [HttpGet, Route("search-by-date")]
+        async public Task<IActionResult> SearchByDate(DateTime from, DateTime to)
+        {
+            var p = await _context.Employees.Where(e => e.DOB.CompareTo(from)>0 && e.DOB.CompareTo(to) < 0).ToListAsync();
+            return Ok(p);
+        }
+
         [HttpPost]
         async public Task<IActionResult> Create(EmployeeDto data)
         {
