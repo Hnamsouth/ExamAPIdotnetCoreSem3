@@ -11,7 +11,6 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
          policy =>
          {
-             //policy.WithOrigins("domain or id"); chi dinh noi dc phep truy cap den
              policy.AllowAnyOrigin();
              policy.AllowAnyMethod();
              policy.AllowAnyHeader();
@@ -25,10 +24,10 @@ builder.Services.AddControllers().AddNewtonsoftJson(options
     = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 //
-/*
-builder.Services.AddDbContext<ProjectSEM3.Entities.ProjectSem3Context>(
-    opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("Local-south"))
-);*/
+
+builder.Services.AddDbContext<ExamAPI.Models.Context>(
+    opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("ExamAPI"))
+); 
 
 // Add services to the container.
 
