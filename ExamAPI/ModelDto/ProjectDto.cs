@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ExamAPI.Validations;
 
 namespace ExamAPI.ModelDto
 {
@@ -11,6 +12,7 @@ namespace ExamAPI.ModelDto
         [Required]
         public DateTime StartDate { get; set; }
         [Required]
+        [ProjectDate("StartDate")]
         public DateTime EndDate { get; set; }
 
     }

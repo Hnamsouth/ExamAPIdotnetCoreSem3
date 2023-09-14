@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ExamAPI.Validations;
 
 namespace ExamAPI.ModelDto
 {
@@ -11,7 +12,9 @@ namespace ExamAPI.ModelDto
         public string Name { get; set; }
         [Required]
         public DateTime DOB { get; set; }
+
         [Required]
+        [GreaterThanOld(16)]
         public string Department { get; set; }
     }
 }
