@@ -24,7 +24,7 @@ namespace ExamAPI.Validations
 
                 if (age < _minAge)
                 {
-                    return new ValidationResult($" Your DOB must be greaterthan {_minAge}.");
+                    return new ValidationResult(ErrorMessage ?? $" Your DOB must be greaterthan {_minAge}.");
                 }
             }
 
