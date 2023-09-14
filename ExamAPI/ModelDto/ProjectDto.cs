@@ -10,7 +10,7 @@ namespace ExamAPI.ModelDto
         public string Name { get; set; }
         [Required]
         public DateTime StartDate { get; set; }
-        [Required]
+        [Required,GreaterThan]
         public DateTime EndDate { get; set; }
 
     }
